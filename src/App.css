@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+body{
+    background-color: #242b2e;
+    
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* NOETBOOK Css */
+.activeNoteBookCard {
+    margin: 8px;
+    background-color: #3e4a4f;
+    padding:2px 2px 2px 20px;
+
+}
+.inActiveNoteBookCard {
+    margin:4px;
+    padding:2px;
+}
+.inActiveNoteBookCard:hover{
+    background-color:#3e4a4f;
+    cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* editor Css */
+.ql-toolbar {
+    background-color: #fff;
+    color: #1b98f5;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .ql-container {
+    min-height: 85vh;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar{
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top:0;
+    height: 98vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    z-index: 2;
   }
+  .sidebar::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
