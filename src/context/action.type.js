@@ -1,3 +1,7 @@
 export const SET_USER = 'SET_USER';
 export const SET_FIRE_ERROR = 'SET_FIRE_ERROR';
-export const SET_IS_SIGNEDIN = 'IS_SIGNED_IN';
+export const SET_IS_SIGNEDIN = 'SET_IS_SIGNEDIN';
+export const SET_NOTEBOOKS = 'SET_NOTEBOOKS';
+export const SET_ACTIVE_NOTEBOOK = 'SET_ACTIVE_NOTEBOOK';
+export const DELETE_NOTEBOOK = 'DELETE_NOTEBOOK';
+export const ADD_NOTEBOOK = 'ADD_NOTEBOOK';

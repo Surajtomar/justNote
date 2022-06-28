@@ -8,6 +8,7 @@ body{
     margin: 8px;
     background-color: #3e4a4f;
     padding:2px 2px 2px 20px;
+    transition: all .3s ease-in-out;
 
 }
 .inActiveNoteBookCard {

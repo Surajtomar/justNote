@@ -13,7 +13,9 @@ const Home = () => {
     <div className="container-fluid text-white">
       <div className="row pt-2">
         <div className="col-2  sidebar">
-          <div className="mb-4">
+          <NoteBook />
+
+          <div className="mb-4 position-absolute bottom-0 ">
             <img
               src={state.user.profilePic}
               className="rounded-circle"
@@ -21,17 +23,12 @@ const Home = () => {
               height="40px"
             />
             <span className="px-3">{state.user.name}</span>
+            <button onClick={fireSignOut} className="btn btn-success ">
+              LOGOUT
+            </button>
           </div>
-
-          <NoteBook />
-          <button
-            onClick={fireSignOut}
-            className="position-absolute bottom-0 btn btn-success "
-          >
-            LOGOUT
-          </button>
         </div>
-        <div className="col-2 bg-success sidebar">
+        <div className="col-2  sidebar">
           <Page />
         </div>
         <div className="col-8 ">

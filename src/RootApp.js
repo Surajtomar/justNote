@@ -11,6 +11,8 @@ const initialState = {
   },
   isSignedIn: false,
   isLoading: false,
+  notebooks: [],
+  activeNoteBook: '',
 };
 export default function RootApp() {
   const [state, dispatch] = useReducer(reducer, initialState);
