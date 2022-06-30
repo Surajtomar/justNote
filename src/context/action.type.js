@@ -5,3 +5,7 @@ export const SET_NOTEBOOKS = 'SET_NOTEBOOKS';
 export const SET_ACTIVE_NOTEBOOK = 'SET_ACTIVE_NOTEBOOK';
 export const DELETE_NOTEBOOK = 'DELETE_NOTEBOOK';
 export const ADD_NOTEBOOK = 'ADD_NOTEBOOK';
+export const SET_PAGE = 'SET_PAGE';
+export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE';
+export const ADD_PAGE = 'ADD_PAGE';
+export const DELETE_PAGE = 'DELETE_PAGE';

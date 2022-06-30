@@ -11,27 +11,21 @@ const Home = () => {
 
   return (
     <div className="container-fluid text-white">
+      <div className="row">
+        <Header />
+      </div>
       <div className="row pt-2">
-        <div className="col-2  sidebar">
+        <div className="col-2   border-end  border-light border-1">
           <NoteBook />
-
-          <div className="mb-4 position-absolute bottom-0 ">
-            <img
-              src={state.user.profilePic}
-              className="rounded-circle"
-              width="auto"
-              height="40px"
-            />
-            <span className="px-3">{state.user.name}</span>
-            <button onClick={fireSignOut} className="btn btn-success ">
-              LOGOUT
-            </button>
-          </div>
         </div>
-        <div className="col-2  sidebar">
+        <div className="col-2  ">
           <Page />
         </div>
         <div className="col-8 ">
+          <p>
+            <span className="text-warning">Currently Active: </span>
+            {state.activeNoteBook[0]} / {state.activePage.name}
+          </p>
           <TextEditor />
         </div>
       </div>

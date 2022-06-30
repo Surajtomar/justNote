@@ -12,7 +12,9 @@ const initialState = {
   isSignedIn: false,
   isLoading: false,
   notebooks: [],
-  activeNoteBook: '',
+  activeNoteBook: ['', ''],
+  pages: [],
+  activePage: { name: '' },
 };
 export default function RootApp() {
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -37,6 +37,7 @@ export const addNewNotebook = async (name, uid, dispatch) => {
   console.log('FUN END');
 };
 
+// to fetch Notebook
 export const getNoteBooks = async (uid, dispatch) => {
   const notebooks = query(collection(db, 'notebook'), where('uid', '==', uid));
 
@@ -48,6 +49,8 @@ export const getNoteBooks = async (uid, dispatch) => {
 
   dispatch({ type: SET_NOTEBOOKS, payload: tempWorkspaces });
 };
+
+// to Delete Notebook
 export const deleteNoteBook = async (notebookId, dispatch) => {
   deleteDoc(doc(db, 'notebook', notebookId))
     .then(() => {

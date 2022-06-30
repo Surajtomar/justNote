@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 // Editior
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { userContext } from '../context/store';
+import { updatePageEditorState } from '../myfirebase/page';
 
 const TextEditor = () => {
+  const { state, dispatch } = useContext(userContext);
+  const [editorState, setEditorState] = useState('TYPE HERE');
+
+  useEffect(() => {
+    setEditorState(state.activePage.editorState);
+  }, [state.activePage, state.activeNoteBook]);
+
   return (
     <div>
       <ReactQuill
         theme="snow"
-        value={''}
+        value={editorState ? editorState : 'TYPE HERE'}
+        onChange={(e) => {
+          setEditorState(e);
+        }}
         modules={{
           toolbar: toolbarOptions,
         }}
+        onBlur={() =>
+          updatePageEditorState(
+            state.activeNoteBook[1],
+            state.activePage.pageId,
+            editorState,
+            dispatch
+          )
+        }
       />
     </div>
   );

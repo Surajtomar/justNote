@@ -128,3 +128,4 @@ dist
 
 # firebase config file 
 src/firebase/config.js
+build/

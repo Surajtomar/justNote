@@ -39,7 +39,6 @@ function App() {
     return susbcriber;
   }, []);
 
-  console.log('USER', user);
   return isSignedIn ? <Home /> : <Auth />;
 }
 
