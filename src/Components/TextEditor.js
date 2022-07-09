@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
+import styles from './TextEditor.module.css';
 
 // Editior
 import ReactQuill from 'react-quill';
@@ -16,7 +17,7 @@ const TextEditor = () => {
   }, [state.activePage, state.activeNoteBook]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <ReactQuill
         theme="snow"
         value={editorState ? editorState : 'TYPE HERE'}

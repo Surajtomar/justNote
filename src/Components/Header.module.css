@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8vh;
+    width: 98vw;
+    color: aliceblue;
+    border-bottom: 2px solid #fff;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+.profilePic{
+    border-radius: 20px;
+    height: 40px;
+    margin-right: 10px;
+}
+.profileName{
+color: antiquewhite;
+margin-right: 20px;
+}
+
+.logout{
+    color: #E74C3C;
+}

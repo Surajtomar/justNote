@@ -3,7 +3,9 @@ import SideCard from '../../Components/SideCard';
 import { SET_ACTIVE_PAGE } from '../../context/action.type';
 import { userContext } from '../../context/store';
 import { addNewPage, deletePage, getPages } from '../../myfirebase/page';
-import { Add } from '@styled-icons/material';
+import { deleteNoteBook } from '../../myfirebase/notebook';
+import { Add, DeleteForever } from '@styled-icons/material';
+import styles from './NoteBook.module.css';
 
 const Page = () => {
   const { state, dispatch } = useContext(userContext);
@@ -19,19 +21,36 @@ const Page = () => {
   }, [state.activeNoteBook]);
 
   return state.activeNoteBook ? (
-    <div className="sidebar">
-      <span className="d-flex justify-content-between align-items-center border-bottom  border-light mb-3">
-        <h5 className="text-warning">{state.activeNoteBook[0]} Pages</h5>
-        <Add
-          size={40}
-          className="text-success"
-          onClick={() => setNewPageStatus(true)}
-        />
+    <div className={styles.container}>
+      <span className={styles.title}>
+        <p
+          style={{
+            width: '3vw',
+            overflow: 'hidden',
+          }}
+        >
+          {state.activeNoteBook[0]}
+        </p>
+        <p>Pages </p>
+        <span>
+          <Add
+            size={40}
+            className={styles.addButton}
+            onClick={() => setNewPageStatus(true)}
+          />
+          <DeleteForever
+            size={24}
+            onClick={() => {
+              deleteNoteBook(state.activeNoteBook[1], dispatch);
+            }}
+            className={styles.deleteButton}
+          />
+        </span>
       </span>
 
       {newPageStatus ? (
         <input
-          class="form-control"
+          className={styles.inputbox}
           value={newPageName}
           placeholder={'Enter New Page Name'}
           onChange={(e) => setNewPageName(e.target.value)}

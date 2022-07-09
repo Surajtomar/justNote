@@ -1,23 +1,15 @@
-import { DeleteForever } from '@styled-icons/material';
 import React from 'react';
+import { DeleteForever } from '@styled-icons/material';
+import styles from './SideCard.module.css';
 
-const SideCard = ({ isActive, title = 'SIDE CARD', handleDelete, id }) => {
+const SideCard = ({ isActive, title = 'SIDE CARD' }) => {
   return (
     <div
-      className={`${
-        isActive ? 'activeNoteBookCard' : 'inActiveNoteBookCard'
-      } d-flex justify-content-between`}
+      className={
+        isActive ? styles.container + ' ' + styles.selected : styles.container
+      }
     >
-      <h6> {title} </h6>
-
-      <DeleteForever
-        size={24}
-        onClick={(e) => {
-          e.stopPropagation();
-          handleDelete(id);
-        }}
-        className="text-danger"
-      />
+      <p>{title} </p>
     </div>
   );
 };

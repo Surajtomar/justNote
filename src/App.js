@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import { userContext } from './context/store';
-import 'bootstrap/dist/css/bootstrap.css';
 
 import './App.css';
 

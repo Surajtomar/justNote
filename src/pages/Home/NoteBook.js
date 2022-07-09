@@ -3,6 +3,7 @@ import SideCard from '../../Components/SideCard';
 import { SET_ACTIVE_NOTEBOOK } from '../../context/action.type';
 import { userContext } from '../../context/store';
 import { Add } from '@styled-icons/material';
+import styles from './NoteBook.module.css';
 import {
   addNewNotebook,
   deleteNoteBook,
@@ -14,25 +15,23 @@ const NoteBook = () => {
   const [addNoteBookStatus, setAddNoteBookStatus] = useState(false);
   const [newNoteBookName, setNewNoteBookName] = useState('');
   const { notebooks } = state;
-  const handleDelete = (notebookId) => {
-    deleteNoteBook(notebookId, dispatch);
-  };
+
   useEffect(() => {
     getNoteBooks(state.user.uid, dispatch);
   }, []);
   return (
-    <div className="sidebar  ">
-      <span className="d-flex justify-content-between align-items-center border-bottom  border-light mb-3">
-        <h5 className="text-warning">MY Notebooks</h5>
+    <div className={styles.container}>
+      <span className={styles.title}>
+        <p>MY Notebooks</p>
         <Add
           size={40}
-          className="text-success"
+          className={styles.addButton}
           onClick={() => setAddNoteBookStatus(true)}
         />
       </span>
       {addNoteBookStatus ? (
         <input
-          class="form-control"
+          className={styles.inputbox}
           value={newNoteBookName}
           placeholder={'Enter Notebook Name'}
           onChange={(e) => setNewNoteBookName(e.target.value)}
@@ -56,7 +55,6 @@ const NoteBook = () => {
             isActive={notebook[1] === state.activeNoteBook[1] ? true : false}
             title={notebook[0]}
             id={notebook[1]}
-            handleDelete={handleDelete}
           />
         </div>
       ))}

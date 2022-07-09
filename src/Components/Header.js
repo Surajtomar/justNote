@@ -2,28 +2,25 @@ import React, { useContext } from 'react';
 import { fireSignOut } from '../myfirebase/auth';
 import { userContext } from '../context/store';
 import { Logout } from '@styled-icons/material';
+import styles from './Header.module.css';
 const Header = () => {
   const { state, dispatch } = useContext(userContext);
 
   console.log('state', state);
   return (
-    <div
-      style={{ height: '60px' }}
-      className="pt-2 border-bottom  border-light d-flex justify-content-between"
-    >
-      <h3>JUST NOTE</h3>
-      <div>
+    <div className={styles.container}>
+      <h2>JUST NOTE</h2>
+      <div className={styles.profile}>
         <img
           src={state.user.profilePic}
-          className="rounded-circle"
+          className={styles.profilePic}
           width="auto"
-          height="40px"
         />
-        <span className="px-3">{state.user.name}</span>
+        <span className={styles.profileName}>{state.user.name}</span>
         <Logout
           size={36}
           title="Log out"
-          style={{ color: 'red', paddingLeft: '5px' }}
+          className={styles.logout}
           onClick={fireSignOut}
         />
       </div>
