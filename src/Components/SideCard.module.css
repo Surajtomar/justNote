@@ -1,40 +1,36 @@
-.container{
-    display: flex;
+.container {
     align-items: center;
-    height: 36px;
     background: #DDDDDD;
-    margin-top: 8px;
-    padding-left: 16px;
-    padding-right: 8px;
-    border-radius: 18px;
-    width: 12vw; 
-    text-overflow: clip;
-    overflow: hidden;
+    border-radius: 2vh;
+    display: flex;
+    height: 4vh;
+    margin-top: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
     transition: all .3s ease-in-out;
     user-select: none;
+    width: 98%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-.container p{
-    font-size: 1.3vw;
+.container p {
+    color: #222831;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
-    color:#222831 ;
-    
 }
-.container:hover{
+
+.container:hover {
     filter: invert(90%);
 }
 
-.selected{
-    height: 40px;
-
+.selected {
+    height: 6vh;
+    border-radius: 3vh;
 }
 
-.selected p{
-    font-size: 1.5vw;
+.selected p {
     font-weight: 500;
     color: #F05454;
 }
-
-
-

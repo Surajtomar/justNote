@@ -50,6 +50,7 @@ const Page = () => {
 
       {newPageStatus ? (
         <input
+          maxlength="50"
           className={styles.inputbox}
           value={newPageName}
           placeholder={'Enter New Page Name'}

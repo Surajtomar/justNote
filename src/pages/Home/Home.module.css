@@ -1,11 +1,12 @@
-.homeContainer{
+.homeContainer {
     display: flex;
     flex-direction: column;
-    width: 98vw;
-    
-    
+
+
 }
-.mainBody{
+
+.mainBody {
     display: flex;
     flex-direction: row;
+
 }

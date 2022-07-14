@@ -9,14 +9,16 @@ const Header = () => {
   console.log('state', state);
   return (
     <div className={styles.container}>
-      <h2>JUST NOTE</h2>
+      <h3>JUST NOTE</h3>
       <div className={styles.profile}>
         <img
           src={state.user.profilePic}
           className={styles.profilePic}
           width="auto"
         />
-        <span className={styles.profileName}>{state.user.name}</span>
+        <span className={styles.profileName}>
+          <h4>{state.user.name}</h4>
+        </span>
         <Logout
           size={36}
           title="Log out"

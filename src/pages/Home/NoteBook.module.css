@@ -1,40 +1,43 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
-    width: 14vw;
+    width: 14%;
     background-color: #30475E;
     padding: 8px;
-    margin-top: 8px;
-    height: 85vh;
-    margin-right: 6px;
+    margin-top: 12px;
+    height: 90vh;
+    margin-right: 0.5vw;
     border-radius: 20px;
-    
+
 }
-.title{
+
+.title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 6vh;
-    border-bottom: 2px solid #D68910  ;
+    border-bottom: 2px solid #D68910;
 
 }
-.title p{
+
+.title p {
     color: #F05454;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     font-family: 'Ubuntu', sans-serif;
-    font-weight: 400;
-}
-.addButton{
-    color: #28B463 ;
+    font-weight: 500;
 }
 
-.inputbox{
+.addButton {
+    color: #28B463;
+}
+
+.inputbox {
     margin-top: 6px;
     height: 24px;
     border-radius: 12px;
 
 }
 
-.deleteButton{
+.deleteButton {
     color: crimson;
-  }
+}

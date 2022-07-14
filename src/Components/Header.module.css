@@ -1,27 +1,30 @@
-.container{
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 8vh;
-    width: 98vw;
+    height: 6vh;
+    width: 100%;
+    position: relative;
     color: aliceblue;
     border-bottom: 2px solid #fff;
 }
 
-.profile{
+.profile {
     display: flex;
     align-items: center;
 }
-.profilePic{
-    border-radius: 20px;
-    height: 40px;
+
+.profilePic {
+    border-radius: 2.5vh;
+    height: 5vh;
     margin-right: 10px;
 }
-.profileName{
-color: antiquewhite;
-margin-right: 20px;
+
+.profileName {
+    color: antiquewhite;
+    margin-right: 20px;
 }
 
-.logout{
+.logout {
     color: #E74C3C;
 }

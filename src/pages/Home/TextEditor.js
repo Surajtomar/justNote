@@ -5,8 +5,8 @@ import styles from './TextEditor.module.css';
 // Editior
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { userContext } from '../context/store';
-import { updatePageEditorState } from '../myfirebase/page';
+import { userContext } from '../../context/store';
+import { updatePageEditorState } from '../../myfirebase/page';
 
 const TextEditor = () => {
   const { state, dispatch } = useContext(userContext);
@@ -18,24 +18,28 @@ const TextEditor = () => {
 
   return (
     <div className={styles.container}>
-      <ReactQuill
-        theme="snow"
-        value={editorState ? editorState : 'TYPE HERE'}
-        onChange={(e) => {
-          setEditorState(e);
-        }}
-        modules={{
-          toolbar: toolbarOptions,
-        }}
-        onBlur={() =>
-          updatePageEditorState(
-            state.activeNoteBook[1],
-            state.activePage.pageId,
-            editorState,
-            dispatch
-          )
-        }
-      />
+      {state.activePage?.pageId ? (
+        <ReactQuill
+          theme="snow"
+          value={editorState ? editorState : ''}
+          onChange={(e) => {
+            setEditorState(e);
+          }}
+          placeholder="Compose an epic..."
+          modules={{
+            toolbar: toolbarOptions,
+          }}
+          scrollingContainer="#scrolling-container"
+          onBlur={() =>
+            updatePageEditorState(
+              state.activeNoteBook[1],
+              state.activePage.pageId,
+              editorState,
+              dispatch
+            )
+          }
+        />
+      ) : null}
     </div>
   );
 };

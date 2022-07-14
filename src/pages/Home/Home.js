@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Header from '../../Components/Header';
-import TextEditor from '../../Components/TextEditor';
+import TextEditor from './TextEditor';
 import { userContext } from '../../context/store';
 
 import NoteBook from './NoteBook';

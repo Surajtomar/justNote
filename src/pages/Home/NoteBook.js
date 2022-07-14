@@ -31,6 +31,7 @@ const NoteBook = () => {
       </span>
       {addNoteBookStatus ? (
         <input
+          maxlength="50"
           className={styles.inputbox}
           value={newNoteBookName}
           placeholder={'Enter Notebook Name'}

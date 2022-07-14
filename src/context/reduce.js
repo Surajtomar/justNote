@@ -20,7 +20,12 @@ export default (state, action) => {
     case SET_NOTEBOOKS:
       return { ...state, notebooks: action.payload };
     case SET_ACTIVE_NOTEBOOK:
-      return { ...state, activeNoteBook: action.payload };
+      return {
+        ...state,
+        activeNoteBook: action.payload,
+        pages: [],
+        activePage: { name: '' },
+      };
 
     case ADD_NOTEBOOK:
       const notebooks = state.notebooks;
@@ -33,7 +38,9 @@ export default (state, action) => {
       const activeNoteBook = notebooks1.length > 0 ? notebooks1[0] : ['', ''];
       return { ...state, notebooks: notebooks1, activeNoteBook };
     case SET_PAGE:
-      return { ...state, pages: action.payload };
+      const activePage =
+        action.payload.length > 0 ? action.payload[0] : { name: '' };
+      return { ...state, pages: action.payload, activePage };
     case ADD_PAGE:
       const pages = state.pages;
       pages.push(action.payload);
@@ -43,8 +50,8 @@ export default (state, action) => {
         (page) => page.pageId !== action.payload
       );
       console.log('action.payload', action.payload);
-      const activePage = pages1.length > 0 ? pages1[0] : { name: '' };
-      return { ...state, pages: pages1, activePage };
+      const activePage1 = pages1.length > 0 ? pages1[0] : { name: '' };
+      return { ...state, pages: pages1, activePage: activePage1 };
     case SET_ACTIVE_PAGE:
       return { ...state, activePage: action.payload };
     default:

@@ -1,7 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import App from './App';
 import reducer from './context/reduce';
 import { userContext } from './context/store';
+import { predb } from './myfirebase/myfirebase';
+
 const initialState = {
   user: {
     email: '',
@@ -18,6 +20,7 @@ const initialState = {
 };
 export default function RootApp() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <userContext.Provider value={{ state: state, dispatch }}>
       <App />
