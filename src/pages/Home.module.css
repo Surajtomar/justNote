@@ -1,0 +1,35 @@
+.container {
+  width: 100vw;
+  height: 92vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.notes {
+  padding-right: 10px;
+}
+
+.editor {
+  padding-left: 10px;
+}
+.topBar {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding: 8px 8px 0px 0px;
+  margin: 0px 0px 6px 0px;
+}
+
+.icon {
+  margin-left: 20px;
+}
+
+.width1 {
+  width: 30%;
+}
+.width2 {
+  width: 50%;
+}
+.width3 {
+  width: 70%;
+}

@@ -1,110 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500;1,700&display=swap');
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #DDDDDD;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #F05454;
-}
-
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  background-color: #222831;
-  height: 100vh;
+.app {
   width: 100vw;
-  line-height: 1.7;
+  height: 100vh;
+  padding: 0;
   margin: 0;
-  padding: 8px;
+  overflow: hidden;
 }
-
 
 h1 {
-  font-size: 7rem;
+  font-size: 30px;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 24px;
 }
 
 h3 {
-  font-size: 3rem;
+  font-size: 20px;
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: 18px;
 }
 
 p {
-  margin: 0;
-  font-size: 1.5rem;
+  font-size: 16px;
 }
 
-a {
-  text-decoration: none;
+.border-primary {
+  border: 1px solid #4f5ca0;
+  border-radius: 8px;
 }
 
-
-/* editor Css */
-.ql-toolbar {
-  background-color: #DDDDDD;
-  color: #D68910;
-  position: -webkit-sticky;
-
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  width: 100%;
-  border: none;
-
+.shadow-sm {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.ql-container {
-  color: #DDDDDD;
-  background-color: #222831;
-  border: none;
-
-
+.shadow-base {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.ql-container>.ql-editor.ql-blank::before {
-  font-size: 20px;
-  color: #F05454;
+.shadow-md {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-.ql-picker.ql-font .ql-picker-label[data-value="lateef"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="lateef"]::before {
-  font-family: "Lateef", cursive;
-  content: "Lateef";
+.shadow-lg {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-.ql-picker.ql-font .ql-picker-label[data-value="markazi-text"]::before,
-.ql-picker.ql-font .ql-picker-item[data-value="markazi-text"]::before {
-  font-family: 'Markazi Text', serif;
-  content: "Markazi";
+.shadow-inner {
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quill {
+  height: 90%;
+}
+.ql-editor {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.ql-editor::-webkit-scrollbar {
+  width: 10px;
+}
+.ql-editor::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+.ql-editor::-webkit-scrollbar-thumb {
+  background-color: #206ca1;
+  border-radius: 100px;
 }

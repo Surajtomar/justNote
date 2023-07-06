@@ -1,0 +1,139 @@
+.container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.toolbar {
+  position: relative;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: visible;
+  flex-wrap: wrap;
+}
+
+.addNewNoteForm {
+  position: absolute;
+  background-color: #f1f5f9;
+  z-index: 1;
+  top: 60px;
+  left: 20px;
+  width: 300px;
+  padding: 12px;
+}
+
+.addNewNoteForm input {
+  color: #113955;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 12px 0px;
+  padding: 6px;
+  width: 100%;
+}
+.addNewNoteForm label {
+  color: #113955;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 12px 0px 0px 0px;
+  width: 100%;
+}
+.addNewNoteForm button {
+  background-color: #113955;
+  width: 100%;
+  height: fit-content;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 6px 0px;
+  padding: 6px;
+  width: 100%;
+}
+
+.submitButton {
+  color: #6cffa4;
+}
+.cancleButton {
+  color: rgb(237, 255, 99);
+}
+
+.addNewNote {
+  display: flex;
+  align-items: center;
+  color: #113955;
+  font-size: 24px;
+  margin: 12px 0px 12px 12px;
+}
+
+.addNewNote p {
+  padding-left: 4px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tagInput {
+  height: 36px;
+  min-width: 80px;
+  flex: 1;
+  background-color: #f1f5f9;
+  border-radius: 4px;
+  margin: 12px 20px 12px 20px;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  align-items: center;
+}
+
+.tagInput input {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  margin-left: 12px;
+  font-size: 14px;
+}
+
+.sortby {
+  height: 100%;
+  width: 180px;
+  color: #113955;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin: 12px;
+}
+.sortby select {
+  background-color: #f1f5f9;
+  padding: 6px;
+  flex: 1;
+  margin-left: 8px;
+  font-size: 14px;
+  color: #113955;
+}
+
+.notesContainer {
+  width: 100%;
+  height: 92%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 12px 12px 200px 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-column-gap: 6px;
+  grid-row-gap: 6px;
+}
+
+.notesContainer::-webkit-scrollbar {
+  width: 10px;
+}
+.notesContainer::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+.notesContainer::-webkit-scrollbar-thumb {
+  background-color: #206ca1;
+  border-radius: 100px;
+}
