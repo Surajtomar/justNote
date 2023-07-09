@@ -1,7 +1,7 @@
 .container {
-  height: fit-content;
-  width: 200px;
-  margin: 8px;
+  height: 100%;
+  width: 100%;
+  margin: 8px 0px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
@@ -11,12 +11,22 @@
 
 .fileIcon {
   color: #113955;
+  width: 20%;
+  height: fit-content;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  width: 90%;
+  justify-content: space-between;
+  align-items: start;
 }
 
 .titleText {
   color: #113955;
   font-size: 16px;
-  margin-left: 6px;
   font-weight: 600;
 }
 
@@ -40,6 +50,7 @@
   color: #113955;
   background-color: transparent;
   align-items: center;
+  user-select: none;
 }
 
 .customButtonText {

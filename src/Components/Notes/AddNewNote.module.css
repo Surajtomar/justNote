@@ -1,0 +1,41 @@
+.addNewNoteForm {
+  position: absolute;
+  background-color: #f1f5f9;
+  z-index: 1;
+  top: 60px;
+  left: 20px;
+  width: 300px;
+  padding: 12px;
+}
+
+.addNewNoteForm input {
+  color: #113955;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 12px 0px;
+  padding: 6px;
+  width: 100%;
+}
+.addNewNoteForm label {
+  color: #113955;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 12px 0px 0px 0px;
+  width: 100%;
+}
+.addNewNoteForm button {
+  background-color: #113955;
+  width: 100%;
+  height: fit-content;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 6px 0px;
+  padding: 6px;
+  width: 100%;
+}
+.submitButton {
+  color: #6cffa4;
+}
+.cancleButton {
+  color: rgb(237, 255, 99);
+}

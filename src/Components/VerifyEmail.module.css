@@ -1,0 +1,97 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to right top,
+    #ff9ce57c,
+    #e68eda7c,
+    #ce81ce7c,
+    #b574c27c,
+    #9d68b57c,
+    #8a5fab7c,
+    #7857a17c,
+    #654e977c,
+    #53468d7c,
+    #403e827c,
+    #2d37777c,
+    #152f6c7c
+  );
+  flex-direction: column;
+}
+
+.body {
+  width: 30vw;
+  height: fit-content;
+  display: flex;
+  padding: 24px 18px;
+  justify-content: start;
+  align-items: center;
+  background-color: #fff;
+  flex-direction: column;
+  border-radius: 1vw;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+.emilgif {
+  width: 20vw;
+  height: auto;
+}
+
+.body h1,
+h3,
+p {
+  color: #113955;
+}
+
+.body h1 {
+  margin-bottom: 6px;
+}
+.body hr {
+  background: #113955;
+  height: 1px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: end;
+}
+
+.buttonContainer button {
+  background-color: #113955;
+  font-size: 1.4vw;
+  color: #f1f5f9;
+  padding: 6px 24px;
+  border-radius: 8px;
+  height: fit-content;
+  width: fit-content;
+  margin: 6px 0px;
+}
+.notReciveText {
+  margin-top: 18px;
+  margin-bottom: 0px;
+}
+
+@media screen and (max-width: 800px) {
+  .body {
+    width: 80vw;
+  }
+  .body button {
+    font-size: 20px;
+  }
+}

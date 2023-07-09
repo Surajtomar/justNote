@@ -1,0 +1,30 @@
+.container {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to right top,
+    #ff9ce5e2,
+    #e68edae2,
+    #ce81cee2,
+    #b574c2e2,
+    #9d68b5e2,
+    #8a5fabe2,
+    #7857a1e2,
+    #654e97e2,
+    #53468de2,
+    #403e82e2,
+    #2d3777e2,
+    #152f6ce2
+  );
+  flex-direction: column;
+  font-size: 44px;
+  color: #f1f5f9;
+  font-weight: 900;
+}
