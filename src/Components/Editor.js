@@ -7,13 +7,18 @@ import { userContext } from "../context/store";
 
 const Editor = () => {
   const { state, dispatch } = useContext(userContext);
-  const [value, setValue] = useState(state.activeNote.body);
+  const [value, setValue] = useState("");
   const handleBlur = () => {
-    fireUpdateNoteBody({ id: state.activeNote.id, dispatch, newBody: value });
+    if (!state.activeNote.isEmpty)
+      fireUpdateNoteBody({ id: state.activeNote.id, dispatch, newBody: value });
+  };
+
+  const updateEditiorBody = (val) => {
+    if (!state.activeNote.isEmpty) setValue(val);
   };
 
   useEffect(() => {
-    if (!state.activeNote.isEmpty) setValue(state.activeNote.body);
+    setValue(state.activeNote.body);
   }, [state.activeNote]);
 
   return (
@@ -21,7 +26,7 @@ const Editor = () => {
       <ReactQuill
         theme="snow"
         value={value}
-        onChange={setValue}
+        onChange={updateEditiorBody}
         modules={{
           toolbar: toolbarOptions,
         }}

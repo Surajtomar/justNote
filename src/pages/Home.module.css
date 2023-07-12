@@ -15,7 +15,7 @@
 .topBar {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 8px 8px 0px 0px;
   margin: 0px 0px 6px 0px;
 }

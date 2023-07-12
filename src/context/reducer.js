@@ -46,7 +46,11 @@ const reducer = (state, action) => {
         isLoading: false,
       };
     case SET_NOTES:
-      return { ...state, notes: action.payload, activeNote: {} };
+      return {
+        ...state,
+        notes: action.payload,
+        activeNote: { isEmpty: true, body: "Please Select A note." },
+      };
 
     case ADD_NEW_NOTE: {
       const newNote = {};
@@ -73,7 +77,8 @@ const reducer = (state, action) => {
       const notes = state.notes;
       let activeNote = state.activeNote;
 
-      if (action.payload.id === activeNote.id) activeNote = { isEmpty: false };
+      if (action.payload.id === activeNote.id)
+        activeNote = { isEmpty: true, body: "Please Select A note." };
       delete notes[action.payload.id];
       return { ...state, notes, activeNote };
     }

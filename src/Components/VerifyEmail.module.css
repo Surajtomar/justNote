@@ -30,7 +30,7 @@
   height: fit-content;
   display: flex;
   padding: 24px 18px;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   background-color: #fff;
   flex-direction: column;
@@ -69,7 +69,7 @@ p {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .buttonContainer button {
