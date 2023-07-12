@@ -4,8 +4,8 @@ import { MdSearch } from "react-icons/md";
 import { CgAdd } from "react-icons/cg";
 import NoteCard from "./NoteCard";
 import AddNewNote from "./AddNewNote";
-import { fireGetNotes, fireNotesBytag } from "../../firebase/notes";
 import { userContext } from "../../context/store";
+import { fireGetNotes, fireGetNotesBytag } from "../../firebase/notes";
 const Notes = () => {
   const { state, dispatch } = useContext(userContext);
   const [isNewClick, setIsNewClick] = useState(false);
@@ -18,7 +18,7 @@ const Notes = () => {
       if (serachByTag === "") {
         fireGetNotes({ uid, dispatch, sortBy });
       } else {
-        fireNotesBytag({ uid, dispatch, searchTag: serachByTag });
+        fireGetNotesBytag({ uid, dispatch, searchTag: serachByTag });
       }
       setSearchByTag("");
     }
@@ -32,6 +32,7 @@ const Notes = () => {
 
   useEffect(() => {
     if (uid) fireGetNotes({ uid, dispatch, sortBy });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [uid, sortBy]);
 
   return (
@@ -52,7 +53,7 @@ const Notes = () => {
         </div>
 
         <div className={sty.sortby}>
-          <label for="sortBy">Sort By:</label>
+          <label htmlFor="sortBy">Sort By:</label>
           <select
             name="sortBy"
             id="sortBy"

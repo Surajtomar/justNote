@@ -7,6 +7,8 @@ import {
   UPDATE_NOTE_NAME,
   UPDATE_NOTE_TAG,
   DELETE_NOTE,
+  UPDATE_NOTE_BODY,
+  SET_ACTIVE_NOTE,
 } from "./action.type";
 
 const reducer = (state, action) => {
@@ -44,7 +46,7 @@ const reducer = (state, action) => {
         isLoading: false,
       };
     case SET_NOTES:
-      return { ...state, notes: action.payload };
+      return { ...state, notes: action.payload, activeNote: {} };
 
     case ADD_NEW_NOTE: {
       const newNote = {};
@@ -61,10 +63,23 @@ const reducer = (state, action) => {
       notes[action.payload.id].tag = action.payload.newTag;
       return { ...state, notes: notes };
     }
+    case UPDATE_NOTE_BODY: {
+      const notes = state.notes;
+      const activeNote = state.activeNote;
+      notes[action.payload.id].body = action.payload.newBody;
+      return { ...state, notes: notes, activeNote: activeNote };
+    }
     case DELETE_NOTE: {
       const notes = state.notes;
+      let activeNote = state.activeNote;
+
+      if (action.payload.id === activeNote.id) activeNote = { isEmpty: false };
       delete notes[action.payload.id];
-      return { ...state, notes };
+      return { ...state, notes, activeNote };
+    }
+
+    case SET_ACTIVE_NOTE: {
+      return { ...state, activeNote: { ...action.payload, isEmpty: false } };
     }
     default:
       return state;

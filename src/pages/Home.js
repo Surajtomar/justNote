@@ -13,7 +13,6 @@ const Home = () => {
     if (notesWidth < 3) setNotesWidth(notesWidth + 1);
   };
 
-  console.log("notesWidth", notesWidth);
   return (
     <div className={sty.container}>
       <div

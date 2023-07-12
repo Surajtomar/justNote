@@ -5,7 +5,7 @@ import { userContext } from "../context/store";
 import { fireSignOut, fireUpdateUserProfile } from "../firebase/auth";
 import OutsideClickHandler from "react-outside-click-handler";
 import { fireUploadProfilePic } from "../firebase/storage";
-import { fireGetNotes, fireNoteSearch } from "../firebase/notes";
+import { fireGetNotes, fireGetNoteSearch } from "../firebase/notes";
 
 const CustomHeader = () => {
   const { state, dispatch } = useContext(userContext);
@@ -36,7 +36,7 @@ const CustomHeader = () => {
     if (e.key === "Enter") {
       if (search === "")
         fireGetNotes({ uid: state.uid, dispatch, sortBy: "name" });
-      else fireNoteSearch({ uid: state.uid, dispatch, search });
+      else fireGetNoteSearch({ uid: state.uid, dispatch, search });
       setSearch("");
     }
   };
@@ -76,7 +76,7 @@ const CustomHeader = () => {
         </div>
       </div>
       <div className={sty.profile}>
-        <img src={state.user.profilePic} />
+        <img src={state.user.profilePic} alt="Profile pic" />
         <p>{state.user.name}</p>
         <MdArrowDropDown
           size={36}

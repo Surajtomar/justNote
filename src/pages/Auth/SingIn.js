@@ -12,11 +12,11 @@ const handleSignInWithGoogle = () => {
 };
 
 const SingIn = ({ setIsLogin }) => {
-  const [email, setEmail] = useState(" ");
-  const [password, setPassword] = useState(" ");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleFormSubmit = (e) => {
-    e.prevenDefault();
+    e.preventDefault();
 
     fireSignIn({ email, password });
   };

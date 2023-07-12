@@ -7,4 +7,6 @@ export const SET_NOTES = "SET_NOTES";
 export const ADD_NEW_NOTE = "ADD_NEW_NOTE";
 export const UPDATE_NOTE_NAME = "UPDATE_NOTE_NAME";
 export const UPDATE_NOTE_TAG = "UPDATE_NOTE_TAG";
+export const UPDATE_NOTE_BODY = "UPDATE_NOTE_BODY";
 export const DELETE_NOTE = " DELETE_NOTE";
+export const SET_ACTIVE_NOTE = "SET_ACTIVE_NOTE";

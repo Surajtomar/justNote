@@ -13,10 +13,11 @@ import {
   fireUpdateNoteTag,
 } from "../../firebase/notes";
 import { userContext } from "../../context/store";
+import { SET_ACTIVE_NOTE } from "../../context/action.type";
 
 const NoteCard = ({ value }) => {
   const { name, tag, id } = value;
-  const { dispatch } = useContext(userContext);
+  const { state, dispatch } = useContext(userContext);
   const [isOptionClick, setIsOptionClick] = useState(false);
   const [isRenameClick, setIsRenameClick] = useState(false);
   const [isEdittagClick, setIsEdittagClick] = useState(false);
@@ -25,14 +26,14 @@ const NoteCard = ({ value }) => {
 
   const handleRenameKeyDown = (e) => {
     if (e.key === "Enter") {
-      fireUpdateNoteName({ newName, id, dispatch });
+      fireUpdateNoteName({ newName, id, dispatch, tag });
       setIsRenameClick(false);
       setIsOptionClick(false);
     }
   };
   const handleTagEditKeyDown = (e) => {
     if (e.key === "Enter") {
-      fireUpdateNoteTag({ newTag, id, dispatch });
+      fireUpdateNoteTag({ newTag, id, dispatch, newName: name });
       setIsOptionClick(false);
       setIsEdittagClick(false);
     }
@@ -48,8 +49,19 @@ const NoteCard = ({ value }) => {
     setIsOptionClick(false);
   };
 
+  const handleNoteClick = () => {
+    dispatch({ type: SET_ACTIVE_NOTE, payload: value });
+  };
+
   return (
-    <div className={sty.container + " border-primary "}>
+    <div
+      className={`${sty.container} ${
+        state.activeNote.id === value.id
+          ? `${sty.selectedContainer} shadow-lg`
+          : null
+      } border-primary`}
+      onClick={handleNoteClick}
+    >
       <AiFillFileText className={sty.fileIcon} />
       <div className={sty.textContainer}>
         <p className={sty.titleText}>{name} </p>

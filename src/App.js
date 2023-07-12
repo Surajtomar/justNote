@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Home from "./Pages/Home";
 import CustomHeader from "./Layout/CustomHeader";
@@ -11,6 +11,7 @@ import { userContext } from "./context/store";
 import { SET_USER, SIGNOUT_USER } from "./context/action.type";
 import VerifyEmail from "./Components/VerifyEmail";
 import Loading from "./Components/Loading";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { state, dispatch } = useContext(userContext);
@@ -67,6 +68,7 @@ function App() {
       {state.isSignedIn === true && state.isEmailVerified === false ? (
         <VerifyEmail />
       ) : null}
+      <ToastContainer />
     </div>
   );
 }

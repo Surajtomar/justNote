@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import sty from "./Editor.module.css";
+import { fireUpdateNoteBody } from "../firebase/notes";
+import { userContext } from "../context/store";
 
 const Editor = () => {
-  const [value, setValue] = useState("");
+  const { state, dispatch } = useContext(userContext);
+  const [value, setValue] = useState(state.activeNote.body);
+  const handleBlur = () => {
+    fireUpdateNoteBody({ id: state.activeNote.id, dispatch, newBody: value });
+  };
+
+  useEffect(() => {
+    if (!state.activeNote.isEmpty) setValue(state.activeNote.body);
+  }, [state.activeNote]);
+
   return (
     <div className={sty.container}>
       <ReactQuill
@@ -14,7 +25,9 @@ const Editor = () => {
         modules={{
           toolbar: toolbarOptions,
         }}
+        readOnly={state.activeNote.isEmpty}
         scrollingContainer="#scrolling-container"
+        onBlur={handleBlur}
       />
     </div>
   );

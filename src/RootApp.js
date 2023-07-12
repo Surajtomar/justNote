@@ -13,7 +13,7 @@ const initialState = {
   isLoading: true,
   notes: {},
   isEmailVerified: "",
-  activePage: {},
+  activeNote: { isEmpty: true },
   uid: "",
 };
 export default function RootApp() {
