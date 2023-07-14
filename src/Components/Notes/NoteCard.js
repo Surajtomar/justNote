@@ -14,6 +14,7 @@ import {
 } from "../../firebase/notes";
 import { userContext } from "../../context/store";
 import { SET_ACTIVE_NOTE } from "../../context/action.type";
+import { useRef } from "react";
 
 const NoteCard = ({ value }) => {
   const { name, tag, id } = value;
@@ -21,19 +22,25 @@ const NoteCard = ({ value }) => {
   const [isOptionClick, setIsOptionClick] = useState(false);
   const [isRenameClick, setIsRenameClick] = useState(false);
   const [isEdittagClick, setIsEdittagClick] = useState(false);
-  const [newName, setNewName] = useState(value.name);
-  const [newTag, setNewTag] = useState(value.tag);
+
+  const newName = useRef(null);
+  const newTag = useRef(null);
 
   const handleRenameKeyDown = (e) => {
     if (e.key === "Enter") {
-      fireUpdateNoteName({ newName, id, dispatch, tag });
+      fireUpdateNoteName({ newName: newName.current.value, id, dispatch, tag });
       setIsRenameClick(false);
       setIsOptionClick(false);
     }
   };
   const handleTagEditKeyDown = (e) => {
     if (e.key === "Enter") {
-      fireUpdateNoteTag({ newTag, id, dispatch, newName: name });
+      fireUpdateNoteTag({
+        newTag: newTag.current.value,
+        id,
+        dispatch,
+        newName: name,
+      });
       setIsOptionClick(false);
       setIsEdittagClick(false);
     }
@@ -82,8 +89,7 @@ const NoteCard = ({ value }) => {
                 <input
                   onKeyDown={handleRenameKeyDown}
                   maxLength="30"
-                  value={newName}
-                  onChange={(e) => setNewName(e.target.value)}
+                  ref={newName}
                 />
               </div>
             ) : (
@@ -100,8 +106,7 @@ const NoteCard = ({ value }) => {
                 <input
                   onKeyDown={handleTagEditKeyDown}
                   maxLength="16"
-                  value={newTag}
-                  onChange={(e) => setNewTag(e.target.value)}
+                  ref={newTag}
                 />
               </div>
             ) : (

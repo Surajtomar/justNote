@@ -5,7 +5,6 @@ import {
   fireForgotPassword,
   fireSignIn,
   fireSignInWithGoogle,
-  fireSignUp,
 } from "../../firebase/auth";
 import { useRef } from "react";
 
