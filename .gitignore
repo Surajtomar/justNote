@@ -129,3 +129,5 @@ dist
 # firebase config file 
 src/firebase/config.js
 build/
+.firebase/hosting.YnVpbGQ.cache
+.firebase/hosting.YnVpbGQ.cache

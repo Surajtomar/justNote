@@ -3,6 +3,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import sty from "./AddNewNote.module.css";
 import { fireCreateNewNote } from "../../firebase/notes";
 import { userContext } from "../../context/store";
+import { toast } from "react-toastify";
 
 const AddNewNote = ({ closeAddNewNoteForm }) => {
   const [name, setName] = useState("");
@@ -17,13 +18,49 @@ const AddNewNote = ({ closeAddNewNoteForm }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    fireCreateNewNote({ name, tag, uid: state.uid, onAdded, dispatch });
+    if (name === "" || tag === "") {
+      if (name === "" && tag !== "") {
+        toast.info("Please provide note name before proceeding", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else if (name !== "" && tag === "") {
+        toast.info("Please provide note tag before proceeding", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        toast.info("Please provide note name and tag before proceeding", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    } else fireCreateNewNote({ name, tag, uid: state.uid, onAdded, dispatch });
   };
+
   return (
     <OutsideClickHandler onOutsideClick={closeAddNewNoteForm}>
       <form
         onSubmit={handleFormSubmit}
-        className={sty.addNewNoteForm + " border-primary shadow-lg"}
+        className={sty.addNewNoteForm + " border-primary shadow-md"}
       >
         <label htmlFor="name">Name</label>
         <input

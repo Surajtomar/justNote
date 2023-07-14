@@ -60,7 +60,7 @@ const CustomHeader = () => {
   };
 
   return (
-    <div className={sty.container + " shadow-lg"}>
+    <div className={sty.container + " shadow-sm"}>
       <div className={sty.logo}>
         <h3>JustNote</h3>
       </div>

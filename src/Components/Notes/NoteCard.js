@@ -57,7 +57,7 @@ const NoteCard = ({ value }) => {
     <div
       className={`${sty.container} ${
         state.activeNote.id === value.id
-          ? `${sty.selectedContainer} shadow-lg`
+          ? `${sty.selectedContainer} shadow-md`
           : null
       } border-primary`}
       onClick={handleNoteClick}

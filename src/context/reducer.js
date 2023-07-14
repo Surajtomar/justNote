@@ -49,7 +49,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         notes: action.payload,
-        activeNote: { isEmpty: true, body: "Please Select A note." },
+        activeNote: { isEmpty: true, body: "" },
       };
 
     case ADD_NEW_NOTE: {
@@ -78,7 +78,7 @@ const reducer = (state, action) => {
       let activeNote = state.activeNote;
 
       if (action.payload.id === activeNote.id)
-        activeNote = { isEmpty: true, body: "Please Select A note." };
+        activeNote = { isEmpty: true, body: "" };
       delete notes[action.payload.id];
       return { ...state, notes, activeNote };
     }
