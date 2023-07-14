@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import sty from "./NoteCard.module.css";
+import { toast } from "react-toastify";
 import { AiFillFileText, AiOutlineMore } from "react-icons/ai";
 import {
   MdDriveFileRenameOutline,
@@ -14,7 +15,6 @@ import {
 } from "../../firebase/notes";
 import { userContext } from "../../context/store";
 import { SET_ACTIVE_NOTE } from "../../context/action.type";
-import { useRef } from "react";
 
 const NoteCard = ({ value }) => {
   const { name, tag, id } = value;
@@ -22,27 +22,32 @@ const NoteCard = ({ value }) => {
   const [isOptionClick, setIsOptionClick] = useState(false);
   const [isRenameClick, setIsRenameClick] = useState(false);
   const [isEdittagClick, setIsEdittagClick] = useState(false);
-
-  const newName = useRef(null);
-  const newTag = useRef(null);
+  const [newName, setNewName] = useState(value.name);
+  const [newTag, setNewTag] = useState(value.tag);
 
   const handleRenameKeyDown = (e) => {
     if (e.key === "Enter") {
-      fireUpdateNoteName({ newName: newName.current.value, id, dispatch, tag });
-      setIsRenameClick(false);
-      setIsOptionClick(false);
+      if (newName === "") infotoast("name cant be a empty value.");
+      else {
+        fireUpdateNoteName({ newName, id, dispatch, tag });
+        setIsRenameClick(false);
+        setIsOptionClick(false);
+      }
     }
   };
   const handleTagEditKeyDown = (e) => {
     if (e.key === "Enter") {
-      fireUpdateNoteTag({
-        newTag: newTag.current.value,
-        id,
-        dispatch,
-        newName: name,
-      });
-      setIsOptionClick(false);
-      setIsEdittagClick(false);
+      if (newTag === "") infotoast("Tag cant be a empty value.");
+      else {
+        fireUpdateNoteTag({
+          newTag,
+          id,
+          dispatch,
+          newName: name,
+        });
+        setIsOptionClick(false);
+        setIsEdittagClick(false);
+      }
     }
   };
 
@@ -64,7 +69,7 @@ const NoteCard = ({ value }) => {
     <div
       className={`${sty.container} ${
         state.activeNote.id === value.id
-          ? `${sty.selectedContainer} shadow-md`
+          ? `${sty.selectedContainer} shadow-lg`
           : null
       } border-primary`}
       onClick={handleNoteClick}
@@ -89,7 +94,8 @@ const NoteCard = ({ value }) => {
                 <input
                   onKeyDown={handleRenameKeyDown}
                   maxLength="30"
-                  ref={newName}
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
                 />
               </div>
             ) : (
@@ -106,7 +112,8 @@ const NoteCard = ({ value }) => {
                 <input
                   onKeyDown={handleTagEditKeyDown}
                   maxLength="16"
-                  ref={newTag}
+                  value={newTag}
+                  onChange={(e) => setNewTag(e.target.value)}
                 />
               </div>
             ) : (
@@ -133,3 +140,14 @@ const NoteCard = ({ value }) => {
 };
 
 export default NoteCard;
+const infotoast = (message) =>
+  toast.info(message, {
+    position: "top-left",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
