@@ -17,7 +17,7 @@ function App() {
   const { state, dispatch } = useContext(userContext);
   const { isLoading } = state;
 
-  const [isLoginScreen, setIsLoginScreen] = useState(false);
+  const [isLoginScreen, setIsLoginScreen] = useState(true);
 
   const authSusbcriber = () => {
     onAuthStateChanged(auth, (user) => {

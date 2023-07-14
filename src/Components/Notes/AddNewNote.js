@@ -19,7 +19,7 @@ const AddNewNote = ({ closeAddNewNoteForm }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (name === "" || tag === "") {
-      if (name === "" && tag !== "") {
+      if (name === "" && tag !== "")
         toast.info("Please provide note name before proceeding", {
           position: "top-left",
           autoClose: 5000,
@@ -30,7 +30,7 @@ const AddNewNote = ({ closeAddNewNoteForm }) => {
           progress: undefined,
           theme: "light",
         });
-      } else if (name !== "" && tag === "") {
+      else if (name !== "" && tag === "")
         toast.info("Please provide note tag before proceeding", {
           position: "top-left",
           autoClose: 5000,
@@ -41,7 +41,7 @@ const AddNewNote = ({ closeAddNewNoteForm }) => {
           progress: undefined,
           theme: "light",
         });
-      } else {
+      else
         toast.info("Please provide note name and tag before proceeding", {
           position: "top-left",
           autoClose: 5000,
@@ -52,7 +52,6 @@ const AddNewNote = ({ closeAddNewNoteForm }) => {
           progress: undefined,
           theme: "light",
         });
-      }
     } else fireCreateNewNote({ name, tag, uid: state.uid, onAdded, dispatch });
   };
 

@@ -2,23 +2,33 @@ import React, { useState } from "react";
 import sty from "./Auth.module.css";
 import { FcGoogle } from "react-icons/fc";
 import {
+  fireForgotPassword,
   fireSignIn,
   fireSignInWithGoogle,
   fireSignUp,
 } from "../../firebase/auth";
+import { useRef } from "react";
 
 const handleSignInWithGoogle = () => {
   fireSignInWithGoogle();
 };
 
 const SingIn = ({ setIsLogin }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const email = useRef(null);
+  const password = useRef(null);
+  const [isForgotPass, setIsForgotPass] = useState(false);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    if (isForgotPass) fireForgotPassword(email.current.value);
+    else
+      fireSignIn({
+        email: email.current.value,
+        password: password.current.value,
+      });
 
-    fireSignIn({ email, password });
+    email.current.value = "";
+    password.current.value = "";
   };
 
   return (
@@ -33,28 +43,18 @@ const SingIn = ({ setIsLogin }) => {
           <p>Login with Google</p>
         </div>
         <p>or use your email to register</p>
-        <form action="" className={sty.form} onSubmit={handleFormSubmit}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your Email."
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label htmlFor="password">Passwoard</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter password."
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        {isForgotPass
+          ? forgotPassForm({ email, handleFormSubmit })
+          : signInForm({ email, password, handleFormSubmit })}
 
-          <button type="submit" className="shadow-lg">
-            Sign up
+        <div className={sty.forgotPassButtonWrapper}>
+          <button
+            type="button"
+            onClick={() => setIsForgotPass((current) => !current)}
+          >
+            {isForgotPass ? "Go back" : "Forgot your password?"}
           </button>
-        </form>
+        </div>
       </div>
       <div className={sty.smallContainer}>
         <h1>New Here?</h1>
@@ -67,5 +67,44 @@ const SingIn = ({ setIsLogin }) => {
     </div>
   );
 };
+
+const signInForm = ({ email, password, handleFormSubmit }) => (
+  <form action="" className={sty.form} onSubmit={handleFormSubmit}>
+    <label htmlFor="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter your Email."
+      ref={email}
+    />
+    <label htmlFor="password">Passwoard</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter password."
+      ref={password}
+    />
+
+    <button type="submit" className="shadow-lg">
+      Sign In
+    </button>
+  </form>
+);
+
+const forgotPassForm = ({ email, handleFormSubmit }) => (
+  <form action="" className={sty.form} onSubmit={handleFormSubmit}>
+    <label htmlFor="email">Enter your registered Email ID</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter your registered Email ID"
+      ref={email}
+    />
+
+    <button type="submit" className="shadow-lg">
+      Reset Password
+    </button>
+  </form>
+);
 
 export default SingIn;

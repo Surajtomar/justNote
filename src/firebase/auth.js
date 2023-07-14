@@ -2,6 +2,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -85,6 +86,16 @@ export const fireSendVerificationMail = () => {
     .catch((error) => errorTost(error.code));
 };
 
+export const fireForgotPassword = (email) => {
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      successTost(
+        "Success! An email for password reset has been sent to your registered email address. Please check your inbox and follow the instructions provided to reset your password."
+      );
+    })
+    .catch((error) => errorTost(error.code));
+};
+
 const fireAuthErrorMessage = {
   "auth/email-already-in-use":
     "Sorry, this email address is already registered. Please try using a different email or log in with your existing account.",
@@ -126,7 +137,7 @@ function errorTost(code) {
     : fireAuthErrorMessage["default"];
 
   toast.error(message, {
-    position: "bottom-center",
+    position: "top-center",
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,

@@ -35,12 +35,13 @@
 
 .smallContainer h1 {
   color: #f1f5f9;
-  font-size: 3.6vw;
+  font-weight: 600;
+  font-size: 3vw;
   margin: 12px 6px;
 }
 .smallContainer p {
   color: #f1f5f9;
-  font-size: 1.4vw;
+  font-size: 1.2vw;
   margin: 12px 4vw;
   text-align: center;
 }
@@ -49,7 +50,6 @@
   color: #f1f5f9;
   background-color: transparent;
   font-size: 1.6vw;
-  font-weight: 600;
   padding: 6px 0px;
   margin: 12px 6px;
   width: 60%;
@@ -85,6 +85,7 @@
 .bigContainer h1 {
   color: #113955;
   font-size: 3vw;
+  font-weight: 600;
   margin-bottom: 12px;
 }
 .bigContainer p {
@@ -102,7 +103,6 @@
   width: fit-content;
   background-color: #fff;
   color: #113955;
-  font-weight: 600;
 }
 
 .form {
@@ -114,14 +114,12 @@
 .form label {
   color: #113955;
   font-size: 1.4vw;
-  font-weight: 600;
   margin: 6px 0px 0px 0px;
   width: 100%;
 }
 .form input {
   color: #113955;
   font-size: 1vw;
-  font-weight: 600;
   margin: 0px 0px 6px 0px;
   padding: 12px 6px;
   width: 100%;
@@ -135,12 +133,22 @@
   width: 100%;
   height: fit-content;
   font-size: 20px;
-  font-weight: 600;
   margin: 12px 0px;
   padding: 6px;
   width: 100%;
   color: #f1f5f9;
   border-radius: 8px;
+}
+
+.forgotPassButtonWrapper {
+  width: 60%;
+  padding: 0px;
+  margin-top: 12px;
+}
+.forgotPassButtonWrapper button {
+  background: transparent;
+  font-size: 16px;
+  color: #113955;
 }
 
 @media screen and (max-width: 600px) {
